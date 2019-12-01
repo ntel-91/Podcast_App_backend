@@ -5,11 +5,6 @@ require 'open-uri'
 class PodcastsController < ApplicationController
 
     def podcastdata
-        
-        # sample rss feeds
-        # https://rss.art19.com/tim-ferriss-show
-        # http://joeroganexp.joerogan.libsynpro.com/rss
-        # http://feeds.feedburner.com/TEDTalks_audio
 
         xml = Nokogiri::XML(open(params[:rss]))
         
@@ -21,7 +16,6 @@ class PodcastsController < ApplicationController
                 title: e.children.at_css('title').content,
                 pubDate: e.children.at_css('pubDate').content,
                 audio: e.children.at_css('enclosure').attribute('url').value
-                # desc: e.children.at_css('description').content.split("<p>").last.split("</p>").first
             })
          end
         
@@ -30,11 +24,7 @@ class PodcastsController < ApplicationController
                 description: podcast_description,
                 episodes_info: episodes
             }
-        )
-
-        # podcasts = Podcast.all 
-        # render json: podcasts  
-        
+        )        
     end
 
     def create
