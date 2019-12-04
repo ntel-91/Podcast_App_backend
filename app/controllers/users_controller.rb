@@ -5,4 +5,10 @@ class UsersController < ApplicationController
         render json: users
     end
 
+    def show
+        
+        user = User.find(params[:id].to_i)
+        render json: user.episodes
+    end
+
 end

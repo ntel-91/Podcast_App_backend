@@ -10,10 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_26_160327) do
+ActiveRecord::Schema.define(version: 2019_12_02_145930) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bookmarks", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "episode_id"
+    t.integer "bookmark_time"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "episodes", force: :cascade do |t|
+    t.string "episode_name"
+    t.integer "podcast_id"
+    t.string "description"
+    t.string "audio"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "podcasts", force: :cascade do |t|
     t.string "podcast_name"
