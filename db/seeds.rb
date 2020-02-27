@@ -11,7 +11,7 @@ Podcast.destroy_all
 Episode.destroy_all
 Bookmark.destroy_all
 
-user1 = User.create(username: 'test-user-1', password: 'test-password-1')
+user1 = User.create(username: 'test', password: 'test')
 
 timferriss = Podcast.create(
     podcast_name: 'Tim Ferriss: Bestselling Author, Human Guinea Pig',
