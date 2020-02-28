@@ -16,7 +16,9 @@ class BookmarksController < ApplicationController
             userEpisodes = user.bookmarkedEpisodesByPodcast
             userBookmarks = user.bookmarksByEpisode
             
+            # select all bookmarks for this specific episode
             episode_bookmarks = user.bookmarks.select{|b| b.episode_id == episode.id}
+            
             
             render json: ({
                 episode_bookmarks: episode_bookmarks,
